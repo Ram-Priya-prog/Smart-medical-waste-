@@ -1,0 +1,26 @@
+
+# SQLite databases and backups
+*.db
+*.sqlite
+*.sqlite3
+*.db.backup*
+*.sqlite.backup*
+
+# Python virtual environment
+venv/
+.venv/
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+
+# Python cache files
+__pycache__/
+*.py[cod]
+

@@ -1,0 +1,44 @@
+Category,Parameter / Metric,Value,Details
+Model Architecture,Algorithm,Random Forest Classifier,Scikit-Learn RandomForestClassifier
+Model Architecture,Task,Medical Waste Pickup Delay Risk Prediction,Binary Delay Risk Classification (is_delayed = 0 or 1)
+Model Architecture,Model Version,rf-delay-v1.0,Production Random Forest Model Version
+Model Architecture,Pipeline Composition,ColumnTransformer + RandomForestClassifier,OneHotEncoder(cat) + SimpleImputer/StandardScaler(num)
+Model Hyperparameters,n_estimators (Trees),150,150 Decision Trees in ensemble
+Model Hyperparameters,max_depth,12,Maximum depth per tree to prevent overfitting
+Model Hyperparameters,min_samples_split,4,Minimum samples required to split an internal node
+Model Hyperparameters,class_weight,balanced,Balanced weighting inversely proportional to class frequencies
+Model Hyperparameters,random_state,42,Fixed seed for 100% reproducibility
+Risk Level Calibration,HIGH DELAY RISK Threshold,>= 65%,Predicted Delay Probability >= 0.65
+Risk Level Calibration,MEDIUM DELAY RISK Threshold,35% - 64%,0.35 <= Predicted Delay Probability < 0.65
+Risk Level Calibration,LOW DELAY RISK Threshold,< 35%,Predicted Delay Probability < 0.35
+Dataset Split,Total Records,1800,Synthetic domain-engineered biomedical waste delay records
+Dataset Split,Training Set (80%),1440,Stratified training set
+Dataset Split,Testing Set (20%),360,Stratified unseen test set
+Test Performance (20% Unseen),Test Accuracy,70.28%,Overall accuracy on unseen test samples
+Test Performance (20% Unseen),ROC-AUC Score,77.17%,Area Under Receiver Operating Characteristic Curve
+Test Performance (20% Unseen),Delay F1-Score,65.37%,Harmonic mean of precision and recall for delayed class
+Test Performance (20% Unseen),Delay Precision,66.45%,True positive rate for predicted delays
+Test Performance (20% Unseen),Delay Recall,64.33%,Sensitivity / actual delay detection rate
+Test Performance (20% Unseen),Weighted F1-Score,70.22%,Weighted harmonic mean across both classes
+Class-wise Metric (On-Time),On-Time - Precision,73.08%,Positive predictive rate for On-Time
+Class-wise Metric (On-Time),On-Time - Recall,74.88%,True positive capture rate for On-Time
+Class-wise Metric (On-Time),On-Time - F1 Score,73.97%,Harmonic mean for On-Time
+Class-wise Metric (On-Time),On-Time - Test Samples,203.0,Actual test set sample count for On-Time
+Class-wise Metric (Delayed),Delayed - Precision,66.45%,Positive predictive rate for Delayed
+Class-wise Metric (Delayed),Delayed - Recall,64.33%,True positive capture rate for Delayed
+Class-wise Metric (Delayed),Delayed - F1 Score,65.37%,Harmonic mean for Delayed
+Class-wise Metric (Delayed),Delayed - Test Samples,157.0,Actual test set sample count for Delayed
+Feature Importance Weight,storage_duration_hours,15.86%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,request_waiting_hours,14.76%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,collector_availability,12.39%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,previous_delay_hours,10.97%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,pickup_distance_km,10.66%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_quantity,9.90%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,time_of_day,8.09%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,day_of_week,5.75%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,hospital_request_frequency,5.73%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_risk_level,1.95%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_category_Yellow,1.16%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_category_Red,1.12%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_category_White,0.87%,Relative Gini-importance contribution in tree splits
+Feature Importance Weight,waste_category_Blue,0.80%,Relative Gini-importance contribution in tree splits
